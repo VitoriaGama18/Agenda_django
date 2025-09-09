@@ -1,3 +1,4 @@
+from PIL.features import version_codec
 from django.db import models
 
 # Create your models here.
@@ -7,4 +8,5 @@ class Contato(models.Model):
     telefone = models.IntegerField()
     email = models.EmailField(blank=True)
     descricao = models.TextField(max_length=255)
+    imagem = models.ImageField(upload_to='agenda_imagens/%Y/%m/', blank=True, null=True)
 
