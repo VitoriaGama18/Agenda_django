@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
 <div class="card border-secondary shadow">
    <div class="card-header bg-secondary text-white text-center">
         <h5 class="mb-0">✏️ </h5>
@@ -24,7 +27,7 @@
            </div>
            <div class="mb-3">
                <label for="email" class="form-label fw-bold">Email</label>
-               <input type="number" name="email" id="email" class="form-control"
+               <input type="email" name="email" id="email" class="form-control"
                       value="{{ contato.email }}">
            </div>
 
@@ -57,3 +60,5 @@
        </form>
    </div>
 </div>
+
+{% endblock %}

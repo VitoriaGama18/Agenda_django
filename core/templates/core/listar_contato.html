@@ -13,13 +13,14 @@
 <div class="row featurette align-items-center mb-4">
   <!-- Texto à esquerda -->
   <div class="col-md-8">
-    <h2 class="featurette-heading fw-bold">{{ cont.nome }} {{ cont.sobrenome }}</h2>
-    <p class="lead mb-1"><strong>Telefone:</strong> {{ cont.telefone }}</p>
-    <small>{{ cont.descricao }}</small>
+        <h2 class="featurette-heading fw-bold">{{ cont.nome }} {{ cont.sobrenome }}</h2>
+        <p class="lead mb-1"><strong>Telefone:</strong> {{ cont.telefone }}</p>
+        <small>{{ cont.descricao }}</small>
+        <p>Email: <small>{{ cont.email }}</small></p>
 
    <div class="d-flex mt-4">
   <a href="{% url 'editarContato' cont.id %}" class="btn btn-info" style="margin-right: 2mm;">Alterar</a>
-  <a href="#" class="btn btn-danger">Excluir</a>
+  <a href="{% url 'excluirContato' cont.id %}" class="btn btn-danger">Excluir</a>
 </div>
   </div>
 
