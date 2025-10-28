@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Via Láctea Brilhante</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{
+  height:100vh;
+  background: radial-gradient(ellipse at bottom,#05010a 0%,#000 100%);
+  display:flex;justify-content:center;align-items:center;overflow:hidden;color:#fff;
+}
+
+/* --- container de estrelas --- */
+.stars{
+  position:absolute;inset:0;overflow:hidden;z-index:0;
+}
+
+/* --- estrela individual --- */
+.star{
+  position:absolute;border-radius:50%;
+  animation:twinkle 3s infinite ease-in-out;
+}
+@keyframes twinkle{
+  0%,100%{opacity:.2;transform:scale(1)}
+  50%{opacity:1;transform:scale(1.6)}
+}
+
+/* --- nebulosas coloridas --- */
+.nebula{
+  position:absolute;border-radius:50%;filter:blur(140px);
+  mix-blend-mode:screen;animation:moveNebula 18s ease-in-out infinite alternate;
+}
+@keyframes moveNebula{
+  0%{transform:scale(1) translate(0,0);opacity:.7}
+  50%{transform:scale(1.2) translate(40px,-50px);opacity:1}
+  100%{transform:scale(1) translate(-40px,50px);opacity:.9}
+}
+.nebula:nth-child(1){width:700px;height:700px;background:radial-gradient(circle, rgba(150, 100, 255, 0.38),transparent);top:10%;left:10%;}
+.nebula:nth-child(2){width:600px;height:600px;background:radial-gradient(circle, rgba(255, 100, 180, 0.29),transparent);bottom:10%;right:5%;animation-delay:3s;}
+.nebula:nth-child(3){width:800px;height:800px;background:radial-gradient(circle, rgba(197, 107, 255, 0.28),transparent);top:40%;left:50%;animation-delay:5s;}
+.nebula:nth-child(4){width:500px;height:500px;background:radial-gradient(circle, rgba(55, 8, 124, 0.44),transparent);top:20%;right:40%;animation-delay:7s;}
+
+/* --- container do login --- */
+.login-container{
+  position:relative;z-index:2;width:400px;padding:50px 40px;
+  background:rgba(255,255,255,.1);backdrop-filter:blur(25px);
+  border:1px solid rgba(255,255,255,.3);border-radius:25px;
+  box-shadow:0 0 50px rgba(255,255,255,.3);
+  text-align:center;animation:appear 1.2s ease;
+  transition:all .4s ease;
+}
+.login-container:hover{
+  transform:scale(1.03);
+  box-shadow:0 0 80px rgb(166, 106, 227);
+}
+@keyframes appear{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+
+h2{
+  font-weight:600;font-size:1.8rem;
+  margin-bottom:25px;
+  color: #2b0c43;text-shadow:0 0 15px #5535e3,0 0 20px #a0bfff;
+}
+
+/* --- inputs --- */
+.input-group{position:relative;margin-bottom:25px;}
+.input-group input{
+  width:100%;padding:12px 15px;border:1px solid rgba(255,255,255,.4);
+  border-radius:10px;background:rgba(255,255,255,.1);
+  font-size:15px;color:#fff;transition:all .3s ease;
+  box-shadow:0 0 20px rgba(255,255,255,.2);
+}
+.input-group input:focus{
+  border-color:#fff;box-shadow:0 0 30px rgba(255,255,255,.6);
+  background:rgba(255,255,255,.2);
+}
+
+/* --- botão com gradiente animado --- */
+.login-btn{
+  width:100%;padding:12px;border:none;border-radius:10px;
+  background:linear-gradient(270deg, #c9b3ef, #a66ae3, #d1bbfa, #8642f6,#ff69f9);
+  background-size:1200% 100%;
+  color:#fff;font-weight:600;font-size:16px;cursor:pointer;
+  animation:gradientMove 8s linear infinite;
+  box-shadow:0 0 35px rgba(255,255,255,.6);
+  transition:transform .3s ease;
+}
+@keyframes gradientMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+.login-btn:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 60px rgba(255,255,255,.9);
+}
+
+/* --- links --- */
+p{color: #5653ba;font-size:13px;margin-top:20px;}
+a{color: #5653ba;text-decoration:none;font-weight:500;transition:color .3s}
+a:hover{color: #261480;text-shadow:0 0 8px #982a98
+}
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+<div class="nebula"></div><div class="nebula"></div><div class="nebula"></div><div class="nebula"></div>
+
+<div class="login-container" id="loginBox">
+  <h2>Portal Cósmico</h2>
+  <form>
+    <div class="input-group"><input type="text" placeholder="Usuário" required></div>
+    <div class="input-group"><input type="password" placeholder="Senha" required></div>
+    <button type="submit" class="login-btn">Entrar</button>
+  </form>
+  <p>Não possui conta? <a href="#">Criar</a></p>
+</div>
+
+<script>
+/* --- cria estrelas multicoloridas com mais brilho --- */
+const starsContainer=document.getElementById("stars");
+const colors=["#fff","#ffbdfb","#9edaff","#b3ffbd","#ffe78f","#ff9bff","#b0fffc","#d1a0ff","#ffd4a0","#a0ffd4"];
+for(let i=0;i<700;i++){
+  const s=document.createElement("div");
+  s.classList.add("star");
+  const size=Math.random()*2+1;
+  s.style.width=s.style.height=size+"px";
+  s.style.top=Math.random()*100+"%";
+  s.style.left=Math.random()*100+"%";
+  const color=colors[Math.floor(Math.random()*colors.length)];
+  s.style.background=color;
+  s.style.boxShadow=`0 0 ${Math.random()*15+5}px ${color}, 0 0 ${Math.random()*20+10}px ${color}`;
+  s.style.animationDelay=(Math.random()*3)+"s";
+  starsContainer.appendChild(s);
+}
+</script>
+
+</body>
+</html>

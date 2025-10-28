@@ -6,4 +6,5 @@ urlpatterns = [
     path('listar_contato/', views.listar_contato,name='listar_contato'),
     path('editarContato/<int:id>',views.editarContato,name='editarContato'),
     path('excluirContato/<int:id>',views.excluirContato,name='excluirContato'),
+    path('buscarContato/',views.buscarContato,name='buscarContato'),
 ]
