@@ -105,16 +105,20 @@ a:hover{color: #261480;text-shadow:0 0 8px #982a98
 </head>
 <body>
 
-<div class="stars" id="stars"></div>
+<div class="stars" password="stars"></div>
 <div class="nebula"></div><div class="nebula"></div><div class="nebula"></div><div class="nebula"></div>
 
-<div class="login-container" id="loginBox">
+<div class="login-container"  password="loginBox">
+
   <h2>Portal Cósmico</h2>
-  <form>
-    <div class="input-group"><input type="text" placeholder="Usuário" required></div>
-    <div class="input-group"><input type="password" placeholder="Senha" required></div>
+  {% if not user.is_authenticated %}
+  <form class="login-form" action="{% url 'login' %}" method=" post ">
+    {% csrf_token %}
+    <div class="input-group"><input type="text" name="username" placeholder="Usuário" required></div>
+    <div class="input-group"><input type="password" name="password" placeholder="Senha" required></div>
     <button type="submit" class="login-btn">Entrar</button>
   </form>
+    {% endif %}
   <p>Não possui conta? <a href="#">Criar</a></p>
 </div>
 
