@@ -1,11 +1,13 @@
+from django.contrib import auth
 from django.shortcuts import render, redirect
 from pyexpat.errors import messages
+from django.contrib.auth import login, logout
 
 
 # Create your views here.
-def login(request):
+def submit_login(request):
     if request.method != 'POST':
-        return render(request, "accounts/login.html")
+        return render(request, "accounts/submit_login.html")
     username = request.POST.get('username')
     password = request.POST.get('password')
 
@@ -15,4 +17,4 @@ def login(request):
         messages.success(request, "Sucesso!")
         return redirect('listar_contato')
     messages.error(request, 'Email ou senha invalido!')
-    return redirect('listar_contato')
+    return redirect('submit_login')

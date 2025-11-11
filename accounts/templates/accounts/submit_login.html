@@ -79,7 +79,7 @@ h2{
 /* --- botão com gradiente animado --- */
 .login-btn{
   width:100%;padding:12px;border:none;border-radius:10px;
-  background:linear-gradient(270deg, #c9b3ef, #a66ae3, #d1bbfa, #8642f6,#ff69f9);
+  background:linear-gradient(270deg, #ec7efd, #a52ab3, #f285f8, #f57cfd,#ff69f9);
   background-size:1200% 100%;
   color:#fff;font-weight:600;font-size:16px;cursor:pointer;
   animation:gradientMove 8s linear infinite;
@@ -97,9 +97,9 @@ h2{
 }
 
 /* --- links --- */
-p{color: #5653ba;font-size:13px;margin-top:20px;}
-a{color: #5653ba;text-decoration:none;font-weight:500;transition:color .3s}
-a:hover{color: #261480;text-shadow:0 0 8px #982a98
+p{color: #e666db;font-size:13px;margin-top:20px;}
+a{color: #853c7d;text-decoration:none;font-weight:500;transition:color .3s}
+a:hover{color: #eec0ff;text-shadow:0 0 8px #982a98
 }
 </style>
 </head>
@@ -111,21 +111,21 @@ a:hover{color: #261480;text-shadow:0 0 8px #982a98
 <div class="login-container"  password="loginBox">
 
   <h2>Portal Cósmico</h2>
-  {% if not user.is_authenticated %}
-  <form class="login-form" action="{% url 'login' %}" method=" post ">
+
+  <form class="submit_login-form" action="{% url 'submit_login' %}" method=" post ">
     {% csrf_token %}
     <div class="input-group"><input type="text" name="username" placeholder="Usuário" required></div>
     <div class="input-group"><input type="password" name="password" placeholder="Senha" required></div>
     <button type="submit" class="login-btn">Entrar</button>
   </form>
-    {% endif %}
+
   <p>Não possui conta? <a href="#">Criar</a></p>
 </div>
 
 <script>
 /* --- cria estrelas multicoloridas com mais brilho --- */
 const starsContainer=document.getElementById("stars");
-const colors=["#fff","#ffbdfb","#9edaff","#b3ffbd","#ffe78f","#ff9bff","#b0fffc","#d1a0ff","#ffd4a0","#a0ffd4"];
+const colors=["#ea57ea","#ffbdfb","#bc85ff","#cc00ff","#ffe78f","#ff9bff","#b0fffc","#d1a0ff","#ffd4a0","#a0ffd4"];
 for(let i=0;i<700;i++){
   const s=document.createElement("div");
   s.classList.add("star");
