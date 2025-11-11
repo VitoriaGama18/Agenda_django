@@ -1,6 +1,6 @@
 from django.contrib import auth
 from django.shortcuts import render, redirect
-from pyexpat.errors import messages
+from django.contrib import messages
 from django.contrib.auth import login, logout
 
 

@@ -113,6 +113,7 @@ a:hover{color: #eec0ff;text-shadow:0 0 8px #982a98
   <h2>Portal Cósmico</h2>
 
   <form class="submit_login-form" action="{% url 'submit_login' %}" method=" post ">
+    {% include 'parciais/messages.html' %}
     {% csrf_token %}
     <div class="input-group"><input type="text" name="username" placeholder="Usuário" required></div>
     <div class="input-group"><input type="password" name="password" placeholder="Senha" required></div>
